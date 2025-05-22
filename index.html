@@ -217,7 +217,7 @@
       100% { background-position: 0% 50%; }
     }
 
-    /* مشغل الصوتية */
+    
     .audio-player-box {
       position: fixed;
       top: 30px;
@@ -398,7 +398,7 @@ document.addEventListener('DOMContentLoaded', function() {
     copyIcon.style.transform = 'scale(0.7)';
   });
 
-  // عند الضغط على الاسم أو الأيقونة يتم النسخ
+ 
   function copyDiscord() {
     navigator.clipboard.writeText(username.textContent).then(function() {
       copyMsg.style.display = 'block';
@@ -409,7 +409,7 @@ document.addEventListener('DOMContentLoaded', function() {
   username.onclick = copyDiscord;
   copyIcon.onclick = copyDiscord;
 
-  // مشغل الصوتية
+
   var audio = document.getElementById('quran-audio');
   var playBtn = document.getElementById('audio-playpause');
   var volDown = document.getElementById('audio-vol-down');
@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', function() {
   audio.volume = 0.4;
   volSlider.value = 0.4;
 
-  // محاولة التشغيل التلقائي مع إزالة الكتم عند أول تفاعل
+ 
   function unmuteAndPlay() {
     audio.muted = false;
     audio.volume = 0.4;
@@ -431,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function() {
         playBtn.innerHTML = pauseIcon;
         removeUserEvents();
       }).catch(function() {
-        // لا شيء: المتصفح يمنع التشغيل التلقائي بدون تفاعل المستخدم
+        
       });
     }
   }
@@ -446,9 +446,9 @@ document.addEventListener('DOMContentLoaded', function() {
     window.removeEventListener('keydown', userInteractHandler);
   }
 
-  // جرب التشغيل التلقائي بعد التحميل
+ 
   setTimeout(unmuteAndPlay, 600);
-  // جرب التشغيل عند أول تفاعل من المستخدم
+ 
   window.addEventListener('click', userInteractHandler);
   window.addEventListener('touchstart', userInteractHandler);
   window.addEventListener('mousemove', userInteractHandler);
