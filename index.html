@@ -217,7 +217,7 @@
       100% { background-position: 0% 50%; }
     }
 
-    
+    /* مشغل الصوتية */
     .audio-player-box {
       position: fixed;
       top: 30px;
@@ -291,6 +291,8 @@
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="preload" as="image" href="SA8y.png">
+  <link rel="preload" as="image" href="my.png">
   <script>
 document.onkeydown = function(e) {
   if (e.key === 'F12' || e.keyCode === 123) {
@@ -343,7 +345,7 @@ document.addEventListener('mousedown', function(e) {
       <h1 class="profile-title">ابـو بـراهـيـم</h1>
       <div class="profile-img-container">
         <div class="highlight-circle"></div>       
-        <img class="profile-img" src="my.png" alt="الصورة الشخصية" />
+        <img class="profile-img" src="my.png" alt="الصورة الشخصية" loading="eager" />
       </div>
       
       <div class="social-icons">
@@ -376,7 +378,7 @@ document.addEventListener('mousedown', function(e) {
       <p>
           
       </p>
-         انشر محتوى مفيد و اذكر نفسي و غيري بالله و بالطريق الصحيح ولا نحتاج شيء و اجرنا على الله و ادعولنا بالخير                                                                                             
+         انشر محتوى مفيد و اذكر نفسي و غيري بالله و   بالطريق الصحيح و نحتاج شيء و اجرنا على الله و ادعولنا بالخير                                                                                             
       <p>
        
       </p>
@@ -398,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function() {
     copyIcon.style.transform = 'scale(0.7)';
   });
 
- 
+  // عند الضغط على الاسم أو الأيقونة يتم النسخ
   function copyDiscord() {
     navigator.clipboard.writeText(username.textContent).then(function() {
       copyMsg.style.display = 'block';
@@ -409,7 +411,7 @@ document.addEventListener('DOMContentLoaded', function() {
   username.onclick = copyDiscord;
   copyIcon.onclick = copyDiscord;
 
-
+  // مشغل الصوتية
   var audio = document.getElementById('quran-audio');
   var playBtn = document.getElementById('audio-playpause');
   var volDown = document.getElementById('audio-vol-down');
@@ -421,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function() {
   audio.volume = 0.4;
   volSlider.value = 0.4;
 
- 
+  // محاولة التشغيل التلقائي مع إزالة الكتم عند أول تفاعل
   function unmuteAndPlay() {
     audio.muted = false;
     audio.volume = 0.4;
@@ -431,7 +433,7 @@ document.addEventListener('DOMContentLoaded', function() {
         playBtn.innerHTML = pauseIcon;
         removeUserEvents();
       }).catch(function() {
-        
+        // لا شيء: المتصفح يمنع التشغيل التلقائي بدون تفاعل المستخدم
       });
     }
   }
@@ -446,9 +448,9 @@ document.addEventListener('DOMContentLoaded', function() {
     window.removeEventListener('keydown', userInteractHandler);
   }
 
- 
+  // جرب التشغيل التلقائي بعد التحميل
   setTimeout(unmuteAndPlay, 600);
- 
+  // جرب التشغيل عند أول تفاعل من المستخدم
   window.addEventListener('click', userInteractHandler);
   window.addEventListener('touchstart', userInteractHandler);
   window.addEventListener('mousemove', userInteractHandler);
